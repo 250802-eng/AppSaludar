@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.473" />
 
     <EditText
-        android:id="@+id/etxtMatrícula"
+        android:id="@+id/etxtMatricula"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="Ingresa tu Matrícula "
@@ -83,13 +83,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="287dp"
-        android:layout_height="200dp"
+        android:layout_width="253dp"
+        android:layout_height="187dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"
-        app:srcCompat="@drawable/shuek" />
+        app:layout_constraintVertical_bias="0.113"
+        app:srcCompat="@drawable/gkuuser" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
