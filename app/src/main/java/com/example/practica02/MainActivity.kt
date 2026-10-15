@@ -1,6 +1,7 @@
 
 package com.example.practica02
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var etxtMatricula: EditText
     private lateinit var btnRegistrar: Button
     private lateinit var btnLimpiar: Button
+    private lateinit var btnDarkMode: Button
     private lateinit var pbCarga: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,21 +47,38 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Inicialización de vistas
         tvMensaje = findViewById(R.id.tvMensaje)
         etxtNombre = findViewById(R.id.etxtNombre)
         etxtMatricula = findViewById(R.id.etxtMatricula)
         btnRegistrar = findViewById(R.id.btnRegistrar)
         btnLimpiar = findViewById(R.id.btnLimpiar)
+        btnDarkMode = findViewById(R.id.btnDarkMode)
         pbCarga = findViewById(R.id.pbCarga)
 
         pbCarga.visibility = View.GONE
 
+        // Eventos de botones
         btnRegistrar.setOnClickListener {
             registrarse()
         }
 
         btnLimpiar.setOnClickListener {
             limpiar()
+        }
+
+        btnDarkMode.setOnClickListener {
+            toggleDarkMode()
+        }
+    }
+
+    private fun toggleDarkMode() {
+        val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+
+        if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
     }
 
